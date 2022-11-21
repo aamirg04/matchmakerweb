@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+
+<!--
+    Author: Aamir Ghouse
+    Project: Matchmaker Web
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Matchmaker Web</title>
+</head>
+
+<body>
+    <h1>Matchmaker Web</h1>
+</body>
+
+<label>Dogs are the best pets</label><br />
+<select id="q1">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neutral</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strngloy Disagree</option>
+</select>
+<br /><br />
+
+<label>Black Coffee is The Best Coffee</label><br />
+<select id="q2">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neutral</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strngloy Disagree</option>
+</select>
+<br /><br />
+
+<label>Ice Cream is the Best Dessert</label><br />
+<select id="q3">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neutral</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strngloy Disagree</option>
+</select>
+<br /><br />
+
+<label>Halloween is the Best Holiday</label><br />
+<select id="q4">
+    <option value="5">Strongly Agree</option>
+       <option value="4">Agree</option>
+    <option value="3">Neutral</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strngloy Disagree</option>
+</select>
+<br /><br />
+
+<label>Reading is Enjoyable</label><br />
+<select id="q5">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neutral</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strngloy Disagree</option>
+</select>
+
+<br /><br />
+<button onclick="calculateCompatibility()">calculate Compatibility</button>"
+
+<p id="compatibility"></p>
+
+<script>
+    console.log("Starting Matchmaker")
+
+function calculateCompatibility() {
+    console.log("calculateCompatibility()");
+    let question1Response = document.GetElementById('q1').selectedOptions[0].value;
+    let question2Response = document.GetElementById('q2').selectedOptions[0].value;
+    let question3Response = document.GetElementById('q3').selectedOptions[0].value;
+    let question4Response = document.GetElementById('q4').selectedOptions[0].value;
+    let question5Response = document.GetElementById('q5').selectedOptions[0].value;
+
+    console.log("Question 1 Answer is:")
+    console.log(document.getElementById('q1').selectedOptions[0].text)
+    console.log(document.getElementById('q1').selectedOptions[0].value)
+    console.log(question1Response)
+
+    console.log("Question 2 Answer is:")
+    console.log(document.getElementById('q2').selectedOptions[0].text)
+    console.log(document.getElementById('q2').selectedOptions[0].value)
+    console.log(question2Response)
+
+    console.log("Question 3 Answer is:")
+    console.log(document.getElementById('q3').selectedOptions[0].text)
+    console.log(document.getElementById('q3').selectedOptions[0].value)
+    console.log(question3Response)
+
+    console.log("Question 4 Answer is:")
+    console.log(document.getElementById('q4').selectedOptions[0].text)
+    console.log(document.getElementById('q4').selectedOptions[0].value)
+    console.log(question4Response)
+
+    console.log("Question 5 Answer is:")
+    console.log(document.getElementById('q5').selectedOptions[0].text)
+    console.log(document.getElementById('q5').selectedOptions[0].value)
+    console.log(question5Response);
+
+    let question1Compatibility = 5 - Math.abs(question1Response - DESIRED_RESPONSE[5]);
+    let question2Compatibility = 5 - Math.abs(question2Response - DESIRED_RESPONSE[5]);
+    let question3Compatibility = 5 - Math.abs(question3Response - DESIRED_RESPONSE[5]);
+    let question4Compatibility = 5 - Math.abs(question4Response - DESIRED_RESPONSE[5]);
+    let question5Compatibility = 5 - Math.abs(question5Response - DESIRED_RESPONSE[5]);
+
+    console.log("c1="+question1Compatibility);
+    console.log("c2="+question2Compatibility);
+    console.log("c3="+question3Compatibility);
+    console.log("c4="+question4Compatibility);
+    console.log("c5="+question5Compatibility);
+
+    let totalCompatibility = question1Compatibility + question2Compatibility + question3Compatibility + question4Compatibility + question5Compatibility;
+
+    totalCompatibility *= 100/ 25;
+    totalCompatibility = Math.round(totalCompatibility);
+    console.log("tc="+ totalCompatibility);
+
+    document.getElementById("compatibility").innerHTML = "Your compatibility is: " + totalCompatibility:
+}
+
+</script>
+</body>
+</html>
